@@ -13,6 +13,7 @@ public class ButtonMethods : MonoBehaviour
     public Animator animatorToChange;
     public RuntimeAnimatorController probing;
     public RuntimeAnimatorController walking;
+    private Vector3 defaultShoePosition;
 
     public GameObject concrete;
     public GameObject wood;
@@ -20,12 +21,14 @@ public class ButtonMethods : MonoBehaviour
     public GameObject sand;
     public GameObject grass;
     public GameObject button;
+    public GameObject treadmill;
     public int currentGround = 5;
 
     private void Start()
     {
         SurfaceButtons = surfaceButtons.GetComponentsInChildren<Button>();
         AnimationTypeButtons = animationTypeButtons.GetComponentsInChildren<Button>();
+        defaultShoePosition = animatorToChange.gameObject.transform.localPosition;
     }
 
     private enum ButtonType{
@@ -59,6 +62,7 @@ public class ButtonMethods : MonoBehaviour
         animatorToChange.runtimeAnimatorController = walking; //Reset Animation
         animatorToChange.runtimeAnimatorController = probing;
         AnimationTypeButtons[0].interactable = false;
+        animatorToChange.gameObject.transform.localPosition = defaultShoePosition;
         //ToDo: ButtonVisualsForAll
     }
     public void Walking()
@@ -70,6 +74,7 @@ public class ButtonMethods : MonoBehaviour
             ActivateGround(2);
             SurfaceButtons[2].interactable = false;
         }
+        animatorToChange.gameObject.transform.localPosition = new Vector3(defaultShoePosition.x, 0.895f, defaultShoePosition.z);
     }
     private void ActivateGround(int id)
     {
@@ -83,6 +88,7 @@ public class ButtonMethods : MonoBehaviour
         if (sand) sand.SetActive(id == 3);
         if (grass) grass.SetActive(id == 4);
         if (button) button.SetActive(id == 5);
+        if (treadmill) treadmill.SetActive(id == 6);
 
         if (id == 5) Probing();
     }
@@ -109,5 +115,9 @@ public class ButtonMethods : MonoBehaviour
     public void Button()
     { 
         ActivateGround(5);
+    }
+    public void Treadmill()
+    {
+        ActivateGround(6);
     }
 }

@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/FREE Footsteps System/_DEMO/demo.unity
     guid: 4ec44024ef4587d4a97b636b7b2965db
+  - enabled: 1
+    path: Assets/FREE Footsteps System/_DEMO/ButtonScene.unity
+    guid: 0847aa78bab973947856399899b453dd
   m_configObjects: {}
