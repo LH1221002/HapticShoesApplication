@@ -1,9 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonMethods : MonoBehaviour
 {
+    public GameObject surfaceButtons;
+    public GameObject animationTypeButtons;
+    private Button[] SurfaceButtons;
+    private Button[] AnimationTypeButtons;
+
     public Animator animatorToChange;
     public RuntimeAnimatorController probing;
     public RuntimeAnimatorController walking;
@@ -16,9 +22,22 @@ public class ButtonMethods : MonoBehaviour
     public GameObject button;
     public int currentGround = 5;
 
-    void Start()
+    private void Start()
     {
-        
+        SurfaceButtons = surfaceButtons.GetComponentsInChildren<Button>();
+        AnimationTypeButtons = animationTypeButtons.GetComponentsInChildren<Button>();
+    }
+
+    private enum ButtonType{
+        surface,
+        animation
+    }
+    private void SetAllButtonsInteractable(ButtonType type)
+    {
+        foreach(Button b in type==ButtonType.surface ? SurfaceButtons : AnimationTypeButtons)
+        {
+            b.interactable = true;
+        }
     }
 
     private void Update()
@@ -36,16 +55,26 @@ public class ButtonMethods : MonoBehaviour
     }
     public void Probing()
     {
+        SetAllButtonsInteractable(ButtonType.animation);
+        animatorToChange.runtimeAnimatorController = walking; //Reset Animation
         animatorToChange.runtimeAnimatorController = probing;
+        AnimationTypeButtons[0].interactable = false;
         //ToDo: ButtonVisualsForAll
     }
     public void Walking()
     {
+        SetAllButtonsInteractable(ButtonType.animation);
         animatorToChange.runtimeAnimatorController = walking;
-        if (currentGround == 5) ActivateGround(2);
+        if (currentGround == 5)
+        {
+            ActivateGround(2);
+            SurfaceButtons[2].interactable = false;
+        }
     }
     private void ActivateGround(int id)
     {
+        SetAllButtonsInteractable(ButtonType.surface);
+
         currentGround = id;
 
         if (concrete) concrete.SetActive(id == 0);
