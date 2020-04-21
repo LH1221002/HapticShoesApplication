@@ -1331,7 +1331,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577819508}
-  m_LocalRotation: {x: 0.30284926, y: 0.00000007333562, z: -0.00000002330403, w: 0.9530385}
+  m_LocalRotation: {x: 0.30284926, y: -0.00000007333562, z: 0.00000002330403, w: 0.9530385}
   m_LocalPosition: {x: 0, y: 2.93, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2183,7 +2183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993979021}
-  m_LocalRotation: {x: 0.30284923, y: 0.00000003666781, z: -0.0000000116520145, w: 0.9530385}
+  m_LocalRotation: {x: 0.30284923, y: -0.000000036667807, z: 0.000000011652013, w: 0.9530385}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2652,7 +2652,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122056694}
-  m_LocalRotation: {x: 0.34042525, y: 0.0000000301119, z: -0.000000010902009, w: 0.9402717}
+  m_LocalRotation: {x: 0.34042522, y: -0.000000011021726, z: 0.0000000039904147, w: 0.9402717}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3368,14 +3368,15 @@ VideoPlayer:
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 4
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: file://C:/Users/luish/Desktop/Medienprojekt Unity/HapticShoesApplication/HapticShoesApplication
+    - VideoRecording - WebGL - Unity 2019.3.10f1 Personal_ _DX11_ 2020-04-21 16-50-50.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
