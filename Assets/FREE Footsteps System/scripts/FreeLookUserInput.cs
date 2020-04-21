@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CinemachineFreeLook))]
 public class FreeLookUserInput : MonoBehaviour
 {
+    public bool RotateOnlyOnClickHold = true;
     private bool _freeLookActive;
 
     // Use this for initialization
@@ -17,11 +18,16 @@ public class FreeLookUserInput : MonoBehaviour
     private void Update()
     {
         _freeLookActive = Input.GetMouseButton(1); // 0 = left mouse btn or 1 = right
-        Cursor.visible = !_freeLookActive;
+        Cursor.visible = RotateOnlyOnClickHold && !_freeLookActive;
     }
 
     private float GetInputAxis(string axisName)
     {
-        return !_freeLookActive ? 0 : Input.GetAxis(axisName == "Mouse Y" ? "Mouse Y" : "Mouse X");
+        return !_freeLookActive&&RotateOnlyOnClickHold ? 0 : Input.GetAxis(axisName == "Mouse Y" ? "Mouse Y" : "Mouse X");
+    }
+
+    public void ToggleRotateOnly()
+    {
+        RotateOnlyOnClickHold = !RotateOnlyOnClickHold;
     }
 }

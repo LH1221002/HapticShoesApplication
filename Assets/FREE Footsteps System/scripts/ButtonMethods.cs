@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonMethods : MonoBehaviour
@@ -21,14 +22,13 @@ public class ButtonMethods : MonoBehaviour
     public GameObject sand;
     public GameObject grass;
     public GameObject button;
-    public GameObject treadmill;
     public int currentGround = 5;
 
     private void Start()
     {
-        SurfaceButtons = surfaceButtons.GetComponentsInChildren<Button>();
-        AnimationTypeButtons = animationTypeButtons.GetComponentsInChildren<Button>();
-        defaultShoePosition = animatorToChange.gameObject.transform.localPosition;
+        if(surfaceButtons) SurfaceButtons = surfaceButtons.GetComponentsInChildren<Button>();
+        if(animationTypeButtons) AnimationTypeButtons = animationTypeButtons.GetComponentsInChildren<Button>();
+        if(animatorToChange) defaultShoePosition = animatorToChange.gameObject.transform.localPosition;
     }
 
     private enum ButtonType{
@@ -88,7 +88,6 @@ public class ButtonMethods : MonoBehaviour
         if (sand) sand.SetActive(id == 3);
         if (grass) grass.SetActive(id == 4);
         if (button) button.SetActive(id == 5);
-        if (treadmill) treadmill.SetActive(id == 6);
 
         if (id == 5) Probing();
     }
@@ -116,8 +115,16 @@ public class ButtonMethods : MonoBehaviour
     { 
         ActivateGround(5);
     }
+    public void CloseUp()
+    {
+        SceneManager.LoadScene("ButtonScene");
+    }
     public void Treadmill()
     {
-        ActivateGround(6);
+        SceneManager.LoadScene("Treadmill");
+    }
+    public void Forest()
+    {
+        SceneManager.LoadScene("Demo");
     }
 }

@@ -130,10 +130,15 @@ public class SimpleCharacterControlFree : MonoBehaviour
 
         m_wasGrounded = m_isGrounded;
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            ControlModeSet = m_controlMode == ControlMode.Direct ? ControlMode.Tank : ControlMode.Direct;
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    ControlModeSet = m_controlMode == ControlMode.Direct ? ControlMode.Tank : ControlMode.Direct;
+        //}
+    }
+
+    public void ToggleControlMode()
+    {
+        ControlModeSet = m_controlMode == ControlMode.Direct ? ControlMode.Tank : ControlMode.Direct;
     }
 
     private void TankUpdate()
