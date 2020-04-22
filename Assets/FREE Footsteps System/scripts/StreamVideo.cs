@@ -16,6 +16,7 @@ public class StreamVideo : MonoBehaviour
     {
         rawImage = GetComponent<RawImage>();
         videoPlayer = GetComponent<VideoPlayer>();
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, "forestrun.mp4");
         StartCoroutine(PlayVideo());
     }
     IEnumerator PlayVideo()
