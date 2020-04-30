@@ -127,4 +127,9 @@ public class ButtonMethods : MonoBehaviour
     {
         SceneManager.LoadScene("Demo");
     }
+
+    public void LowHeelButtonPress()
+    {
+        SceneManager.LoadScene("SecondButtonScene");
+    }
 }

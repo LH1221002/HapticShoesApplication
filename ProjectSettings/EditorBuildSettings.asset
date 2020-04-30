@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FREE Footsteps System/_DEMO/demo.unity
     guid: 4ec44024ef4587d4a97b636b7b2965db
+  - enabled: 1
+    path: Assets/FREE Footsteps System/_DEMO/SecondButtonScene.unity
+    guid: 2f01ffd36a20a2e4c9f8cee1c38c7c0a
   m_configObjects: {}
