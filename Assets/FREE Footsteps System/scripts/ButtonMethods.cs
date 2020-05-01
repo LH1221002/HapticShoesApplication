@@ -132,4 +132,9 @@ public class ButtonMethods : MonoBehaviour
     {
         SceneManager.LoadScene("SecondButtonScene");
     }
+
+    public void Bridge()
+    {
+        SceneManager.LoadScene("Dock Thing");
+    }
 }
